@@ -38,6 +38,13 @@
 			remoteGlobalIDString = 2D02E47A1E0B4A5D006451C7;
 			remoteInfo = "telecommunication-tvOS";
 		};
+		D6BEA44524BDA9DA0089ED70 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D7ED88C524BBFC8300731503 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 50B5347C9A6E93B7D4CFC3673BA6FB7E;
+			remoteInfo = RNScreens;
+		};
 		D7DE946F24BC41CC0024800A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D7ED88C524BBFC8300731503 /* Pods.xcodeproj */;
@@ -443,6 +450,7 @@
 				D7ED891724BBFC8400731503 /* libReactCommon.a */,
 				D7DE947224BC41CC0024800A /* libRNGestureHandler.a */,
 				D7DE947424BC41CC0024800A /* libRNReanimated.a */,
+				D6BEA44624BDA9DA0089ED70 /* libRNScreens.a */,
 				D7DE947624BC41CC0024800A /* libRNVectorIcons.a */,
 				D7ED891924BBFC8400731503 /* libYoga.a */,
 			);
@@ -544,6 +552,9 @@
 						CreatedOnToolsVersion = 6.2;
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
+					13B07F861A680F5B00A75B9A = {
+						DevelopmentTeam = SZJ267B4Q8;
+					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
 						ProvisioningStyle = Automatic;
@@ -560,6 +571,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -583,6 +595,13 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		D6BEA44624BDA9DA0089ED70 /* libRNScreens.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNScreens.a;
+			remoteRef = D6BEA44524BDA9DA0089ED70 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		D7DE947024BC41CC0024800A /* libBVLinearGradient.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -1148,6 +1167,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
+				DEVELOPMENT_TEAM = SZJ267B4Q8;
 				INFOPLIST_FILE = telecommunication/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -1167,6 +1187,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SZJ267B4Q8;
 				INFOPLIST_FILE = telecommunication/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (

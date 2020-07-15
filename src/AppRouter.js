@@ -9,6 +9,7 @@ import TabIcon from "./components/icons/TabIcon";
 
 import Home from "./container/Home";
 import Profile from "./container/Profile";
+import LoginScreen from './components/login/LoginScreen';
 
 const AppRouter = () => {
   return (
@@ -47,6 +48,12 @@ const AppRouter = () => {
               icon={TabIcon}
             />
           </Tabs>
+          <Scene
+            key="LoginScreen"
+            component={LoginScreen}
+            hideNavBar
+            title="LoginScreen"
+          />
         </Scene>
       </Router>
     </View>
