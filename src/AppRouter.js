@@ -11,6 +11,15 @@ import Home from "./container/Home";
 import Profile from "./container/Profile";
 import LoginScreen from './components/login/LoginScreen';
 
+//profile
+import Setting from './components/profile/Setting';
+import Test from './components/profile/Test';
+
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
+import {Map} from 'immutable';
+import * as profile from './reducers/profile/profileActions';
+
 const AppRouter = () => {
   return (
     <View style={styles.container}>
@@ -54,6 +63,18 @@ const AppRouter = () => {
             hideNavBar
             title="LoginScreen"
           />
+          <Scene
+            key="Test"
+            component={Test}
+            hideNavBar
+            title="Test"
+          />
+          <Scene
+            key="Setting"
+            component={Setting}
+            hideNavBar
+            title="Setting"
+          />
         </Scene>
       </Router>
     </View>
@@ -95,4 +116,26 @@ const styles = StyleSheet.create({
     fontSize: 13,
   },
 });
-export default AppRouter;
+
+const actions = [
+  profile,
+];
+
+function mapStateToProps(state) {
+  return {
+    ...state
+  };
+}
+function mapDispatchToProps(dispatch) {
+  const creators = Map()
+    .merge(...actions)
+    .filter(value => typeof value === 'function')
+    .toObject();
+
+  return {
+    actions: bindActionCreators(creators, dispatch),
+    dispatch
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(AppRouter)
