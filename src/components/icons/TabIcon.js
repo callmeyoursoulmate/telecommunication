@@ -13,6 +13,9 @@ export default TabIcon = ({ title, focused }) => {
     case 'Cá nhân':
       iconName = 'user';
       break;
+    case 'Yêu thích':
+      iconName = 'book';
+      break;
   }
 
   return (
