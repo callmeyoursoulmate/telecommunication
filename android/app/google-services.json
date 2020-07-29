@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "300381353617",
+    "firebase_url": "https://telecommunication-67933.firebaseio.com",
+    "project_id": "telecommunication-67933",
+    "storage_bucket": "telecommunication-67933.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:300381353617:android:72e4b6f4ca8e4155303130",
+        "android_client_info": {
+          "package_name": "com.telecommunication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "300381353617-vmb5rbft4m8usp6tld0j6i26icaa77ts.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD6E8C8VdXcoNWaEx9KPHfk-R4JZZywRB8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "300381353617-vmb5rbft4m8usp6tld0j6i26icaa77ts.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "300381353617-0ot3ku00d4f716ohanc0d2feejvbg998.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "org.reactjs.native.example.telecommunication"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
