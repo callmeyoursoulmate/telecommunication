@@ -9,6 +9,7 @@ import TabIcon from "./components/icons/TabIcon";
 
 import Home from "./container/Home";
 import Profile from "./container/Profile";
+import MostLike from "./container/MostLike";
 import LoginScreen from './components/login/LoginScreen';
 
 //profile
@@ -54,6 +55,14 @@ const AppRouter = () => {
               component={Profile}
               hideNavBar
               title="Cá nhân"
+              icon={TabIcon}
+            />
+            <Scene
+              key="MostLike"
+              initial
+              component={MostLike}
+              hideNavBar
+              title="Yêu thích"
               icon={TabIcon}
             />
           </Tabs>
