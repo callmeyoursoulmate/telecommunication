@@ -5,16 +5,20 @@ import { Actions } from 'react-native-router-flux';
 const SplashScreen = () => {
     return (
         <View style={styles.container}>
-            <TouchableOpacity style={{marginTop:30}} onPress={() => Actions.pop()}>
-                <Text>Back</Text>
-            </TouchableOpacity>
+            <Text style={styles.title}></Text>
         </View>
     )
 }
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff'
+        backgroundColor: '#fff',
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    title: {
+        fontWeight: 'bold',
+        fontSize: 18
     }
 })
 export default SplashScreen;

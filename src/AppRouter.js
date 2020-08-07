@@ -9,13 +9,14 @@ import TabIcon from "./components/icons/TabIcon";
 
 import Home from "./container/Home";
 import Profile from "./container/Profile";
-import MostLike from "./container/MostLike";
+import Note from "./container/Note";
 import LoginScreen from './components/login/LoginScreen';
 
 //profile
 import Setting from './components/profile/Setting';
 import Test from './components/profile/Test';
 
+//note
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {Map} from 'immutable';
@@ -58,11 +59,11 @@ const AppRouter = () => {
               icon={TabIcon}
             />
             <Scene
-              key="MostLike"
+              key="Note"
               initial
-              component={MostLike}
+              component={Note}
               hideNavBar
-              title="Yêu thích"
+              title="Chú thích"
               icon={TabIcon}
             />
           </Tabs>
