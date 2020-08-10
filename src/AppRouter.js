@@ -53,6 +53,7 @@ const AppRouter = () => {
             />
             <Scene
               key="Profile"
+              initial
               component={Profile}
               hideNavBar
               title="Cá nhân"
@@ -60,7 +61,7 @@ const AppRouter = () => {
             />
             <Scene
               key="Note"
-              initial
+              // initial
               component={Note}
               hideNavBar
               title="Chú thích"

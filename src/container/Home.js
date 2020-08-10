@@ -9,10 +9,12 @@ import {
   TouchableOpacity
 } from 'react-native';
 import { Actions } from 'react-native-router-flux';
+import { useSelector} from 'react-redux';
 
 const Home = () => {
+  const theme = useSelector(state => state.themeReducer.theme);
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { backgroundColor: theme.PRIMARY_BACKGROUND_COLOR}]}>
       <TouchableOpacity onPress={() => Actions.LoginScreen()}>
         <Text>Go to Login</Text>
       </TouchableOpacity>
@@ -22,7 +24,6 @@ const Home = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
     justifyContent: 'center',
     alignItems: 'center'
   }
