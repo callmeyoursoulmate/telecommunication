@@ -17,8 +17,8 @@ import { switchTheme } from '../reducers/theme/themeActions';
 import { lightTheme, darkTheme } from '../reducers/theme/Theme';
 import localStorage from '../lib/localStorage';
 
-const Profile = (props) => {
-  const theme = useSelector((state) => state.themeReducer.theme);
+const Profile = () => {
+  const theme = useSelector((state) => state.theme.theme);
   const dispatch = useDispatch();
 
   const changeToDark = async () => {

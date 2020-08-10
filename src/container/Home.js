@@ -12,9 +12,11 @@ import { Actions } from 'react-native-router-flux';
 import { useSelector} from 'react-redux';
 
 const Home = () => {
-  const theme = useSelector(state => state.themeReducer.theme);
+  const theme = useSelector(state => state.theme.theme);
   return (
-    <View style={[styles.container, { backgroundColor: theme.PRIMARY_BACKGROUND_COLOR}]}>
+    <View style={[styles.container, 
+    { backgroundColor: theme.PRIMARY_BACKGROUND_COLOR}
+    ]}>
       <TouchableOpacity onPress={() => Actions.LoginScreen()}>
         <Text>Go to Login</Text>
       </TouchableOpacity>
