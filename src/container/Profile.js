@@ -8,34 +8,24 @@ import {
 } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
-// import { bindActionCreators } from 'redux';
-// import { connect } from 'react-redux';
-// import { Map } from 'immutable';
-// import * as theme from '../reducers/theme/themeActions';
-import { useSelector, useDispatch } from 'react-redux';
-import { switchTheme } from '../reducers/theme/themeActions';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { Map } from 'immutable';
+import * as theme from '../reducers/theme/themeActions';
+
 import { lightTheme, darkTheme } from '../reducers/theme/Theme';
 import localStorage from '../lib/localStorage';
 
-const Profile = () => {
-  const theme = useSelector((state) => state.theme.theme);
-  const dispatch = useDispatch();
+const Profile = (props) => {
+  const theme = props.theme.theme;
 
   const changeToDark = async () => {
-    try {
-      await localStorage.setTheme(theme);
-      dispatch(switchTheme(darkTheme));
-    } catch (err) {
-      alert(err)
-    }
+    localStorage.setTheme(darkTheme);
+    props.actions.switchTheme(darkTheme)
   }
   const changeToLight = async () => {
-    try {
-      await localStorage.setTheme(theme);
-      dispatch(switchTheme(lightTheme));
-    } catch (err) {
-      alert(err);
-    }
+    localStorage.setTheme(lightTheme);
+    props.actions.switchTheme(lightTheme)
   }
 
   return (
@@ -76,27 +66,26 @@ const styles = StyleSheet.create({
   },
 })
 
-// const actions = [
-//   theme
-// ];
+const actions = [
+  theme
+];
 
-// function mapStateToProps(state) {
-//   return {
-//     ...state
-//   };
-// }
+function mapStateToProps(state) {
+  return {
+    ...state
+  };
+}
 
-// function mapDispatchToProps(dispatch) {
-//   const creators = Map()
-//     .merge(...actions)
-//     .filter(value => typeof value === 'function')
-//     .toObject();
+function mapDispatchToProps(dispatch) {
+  const creators = Map()
+    .merge(...actions)
+    .filter(value => typeof value === 'function')
+    .toObject();
 
-//   return {
-//     actions: bindActionCreators(creators, dispatch),
-//     dispatch
-//   };
-// }
+  return {
+    actions: bindActionCreators(creators, dispatch),
+    dispatch
+  };
+}
 
-// export default connect(mapStateToProps, mapDispatchToProps)(Profile);
-export default (Profile);
+export default connect(mapStateToProps, mapDispatchToProps)(Profile);

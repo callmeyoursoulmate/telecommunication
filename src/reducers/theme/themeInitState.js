@@ -1,4 +1,6 @@
+import {Record} from 'immutable';
 import { lightTheme } from './Theme';
-export default InitialState = {
+const InitialState = Record({
     theme: lightTheme
-}
+});
+export default InitialState;
