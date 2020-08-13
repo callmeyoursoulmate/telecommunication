@@ -3,9 +3,11 @@ import {
   StyleSheet,
   View,
   Text,
-  ActivityIndicator
+  ActivityIndicator,
+  TouchableOpacity
 } from 'react-native';
 import PeopleList from '../employee/PeopleList';
+import {Actions} from 'react-native-router-flux';
 
 const Test = () => {
   let [people, setPeople] = useState([]);
@@ -29,6 +31,9 @@ const Test = () => {
   };
   return (
     <View style={styles.container}>
+    <TouchableOpacity style={{marginTop:30}} onPress={() => Actions.pop()}>
+      <Text>back</Text>
+    </TouchableOpacity>
       {content}
     </View>
   );

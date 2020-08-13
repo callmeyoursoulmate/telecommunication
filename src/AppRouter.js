@@ -52,19 +52,19 @@ const AppRouter = () => {
               icon={TabIcon}
             />
             <Scene
-              key="Profile"
-              initial
-              component={Profile}
-              hideNavBar
-              title="Cá nhân"
-              icon={TabIcon}
-            />
-            <Scene
               key="Note"
               // initial
               component={Note}
               hideNavBar
               title="Chú thích"
+              icon={TabIcon}
+            />
+             <Scene
+              key="Profile"
+              initial
+              component={Profile}
+              hideNavBar
+              title="Cá nhân"
               icon={TabIcon}
             />
           </Tabs>

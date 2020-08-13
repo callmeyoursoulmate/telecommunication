@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { View, StyleSheet, FlatList, Alert, SafeAreaView, Text } from 'react-native';
-import { v4 as uuidv4 } from 'uuid';
 
 import Header from '../components/note/Header';
 import ListItem from '../components/note/ListItem';
@@ -9,19 +8,19 @@ import AddItem from '../components/note/AddItem';
 const Note = () => {
     const [items, setItems] = useState([
         {
-            id: uuidv4(),
+            id: Math.random(),
             text: 'Milk',
         },
         {
-            id: uuidv4(),
+            id: Math.random(),
             text: 'Eggs',
         },
         {
-            id: uuidv4(),
+            id: Math.random(),
             text: 'Bread',
         },
         {
-            id: uuidv4(),
+            id: Math.random(),
             text: 'Juice',
         },
     ]);
@@ -74,7 +73,7 @@ const Note = () => {
             );
         } else {
             setItems(prevItems => {
-                return [{ id: uuidv4(), text }, ...prevItems];
+                return [{ id: Math.random(), text }, ...prevItems];
             });
         }
     };

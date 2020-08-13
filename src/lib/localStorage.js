@@ -7,12 +7,12 @@ var storageKeys = {
 class LocalStorage {
     //theme
     setTheme(theme) {
-        console.log('===> theme',theme);
+        // console.log('===> theme',theme);
         return AsyncStorage.setItem(storageKeys.THEME, JSON.stringify(theme));
     };
     getTheme() {
         return AsyncStorage.getItem(storageKeys.THEME).then(result => {
-            console.log('===> result',result);
+            // console.log('===> result',result);
             return JSON.parse(result);
         })
     }
