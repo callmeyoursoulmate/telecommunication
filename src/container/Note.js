@@ -102,19 +102,21 @@ const Note = () => {
             <AddItem addItem={addItem} />
             <FlatList
                 data={items}
-                renderItem={({ item }) => (
-                    <ListItem
-                        item={item}
-                        deleteItem={deleteItem}
-                        editItem={editItem}
-                        isEditing={editStatus}
-                        editItemDetail={editItemDetail}
-                        saveEditItem={saveEditItem}
-                        handleEditChange={handleEditChange}
-                        itemChecked={itemChecked}
-                        checkedItems={checkedItems}
-                    />
-                )}
+                renderItem={({ item }) => {
+                    return (
+                        <ListItem
+                            item={item}
+                            deleteItem={deleteItem}
+                            editItem={editItem}
+                            isEditing={editStatus}
+                            editItemDetail={editItemDetail}
+                            saveEditItem={saveEditItem}
+                            handleEditChange={handleEditChange}
+                            itemChecked={itemChecked}
+                            checkedItems={checkedItems}
+                        />
+                    )}}
+                keyExtractor={(item) => item.id.toString()}
             />
         </SafeAreaView>
     )

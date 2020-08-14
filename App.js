@@ -27,17 +27,17 @@ const store = configureStore(getInitialState());
 
 
 const App = () => {
-  const themeCurrent = store.getState().theme.theme;
-  const [theme, setTheme] = useState({themeCurrent});
-  useEffect(() => {
-    fetchData();
-  }, []);
-  const fetchData = async () => {
-    let localTheme = await localStorage.getTheme(theme);
-    if(localTheme){
-      setTheme(localTheme);
-    }
-  }
+  // const themeCurrent = store.getState().theme.theme;
+  // const [theme, setTheme] = useState({themeCurrent});
+  // useEffect(() => {
+  //   fetchData();
+  // }, []);
+  // const fetchData = async () => {
+  //   let localTheme = await localStorage.getTheme(theme);
+  //   if(localTheme){
+  //     setTheme(localTheme);
+  //   }
+  // }
   return (
     <Provider store={store}>
       <AppRouter />

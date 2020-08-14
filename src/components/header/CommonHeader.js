@@ -11,30 +11,53 @@ const CommonHeader = (props) => {
         title,
         textStyle,
         heightHeader,
-        marginTop
+        marginTop,
+        noLinear
     } = props;
     return (
-        <LinearGradient
-            colors={gui.linearMain}
-            style={[styles.header, { marginTop }]}>
-            <View style={{ flexDirection: 'row' }}>
-                <TouchableOpacity
-                    activeOpacity={1}
-                    style={styles.viewBack}
-                    onPress={onPressLeft}>
-                    {leftContent}
-                </TouchableOpacity>
-                <View style={styles.viewTitle}>
-                    <Text style={[styles.titleTextHeader, textStyle]}>{title}</Text>
+        <View>
+            {noLinear ?
+                <View style={[styles.header, { marginTop }]}>
+                    <TouchableOpacity
+                        activeOpacity={1}
+                        style={styles.viewBack}
+                        onPress={onPressLeft}>
+                        {leftContent}
+                    </TouchableOpacity>
+
+                    <View style={styles.viewTitle}>
+                        <Text style={[styles.titleTextHeader, textStyle]}>{title}</Text>
+                    </View>
+                    <TouchableOpacity
+                        activeOpacity={1}
+                        onPress={onPressRight}
+                        style={styles.viewRight}>
+                        {rightContent}
+                    </TouchableOpacity>
                 </View>
-            </View>
-            <TouchableOpacity
-                activeOpacity={1}
-                onPress={onPressRight}
-                style={styles.viewRight}>
-                {rightContent}
-            </TouchableOpacity>
-        </LinearGradient>
+                :
+                <LinearGradient
+                    colors={gui.linearMain}
+                    style={[styles.header, { marginTop }]}>
+                    <TouchableOpacity
+                        activeOpacity={1}
+                        style={styles.viewBack}
+                        onPress={onPressLeft}>
+                        {leftContent}
+                    </TouchableOpacity>
+                    <View style={styles.viewTitle}>
+                        <Text style={[styles.titleTextHeader, textStyle]}>{title}</Text>
+                    </View>
+                    <TouchableOpacity
+                        activeOpacity={1}
+                        onPress={onPressRight}
+                        style={styles.viewRight}>
+                        {rightContent}
+                    </TouchableOpacity>
+                </LinearGradient>
+            }
+        </View>
+
     );
 }
 
@@ -63,7 +86,6 @@ const styles = StyleSheet.create({
     viewTitle: {
         justifyContent: 'center',
         alignItems: 'center',
-        marginLeft: -30,
     },
     titleTextHeader: {
         fontSize: 18,

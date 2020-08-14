@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Platform, View, Text } from "react-native";
+import { StyleSheet, Platform, View, Text, StatusBar } from "react-native";
 import {
   Router,
   Scene,
@@ -15,16 +15,20 @@ import LoginScreen from './components/login/LoginScreen';
 //profile
 import Setting from './components/profile/Setting';
 import Test from './components/profile/Test';
+import EditProfile from './components/profile/EditProfile';
 
 //note
-import {bindActionCreators} from 'redux';
-import {connect} from 'react-redux';
-import {Map} from 'immutable';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { Map } from 'immutable';
 import * as profile from './reducers/profile/profileActions';
+import * as theme from './reducers/theme/themeActions';
 
-const AppRouter = () => {
+const AppRouter = (props) => {
+  const theme = props.theme.theme;
   return (
     <View style={styles.container}>
+      <StatusBar barStyle={theme.STATUS_BAR_STYLE} backgroundColor={theme.PRIMARY_BACKGROUND_COLOR} />
       <Router>
         <Scene
           key="root"
@@ -36,19 +40,20 @@ const AppRouter = () => {
             key="Main"
             tabBarPosition="bottom"
             lazy
-            activeBackgroundColor="#fff"
             tabs
             hideNavBar
-            tabBarStyle={styles.bottomTabBar}
+            activeBackgroundColor="transperent" //bg khi click vao icon
+            tabBarStyle={[styles.bottomTabBar, { backgroundColor: theme.PRIMARY_BACKGROUND_COLOR }]} // bg bottomBar
             labelStyle={styles.bottomTabTitle}
-            activeTintColor={"red"}
-            inactiveTintColor={"#999"}
+            activeTintColor={theme.PRIMARY_BUTTON_COLOR} //cùng màu với màu icons
+            inactiveTintColor={theme.PRIMARY_TEXT_COLOR}
           >
             <Scene
               key="Home"
               component={Home}
               hideNavBar //tự sinh height on Top
               title="Trang chủ"
+              theme //truyền theme vào TabIcon
               icon={TabIcon}
             />
             <Scene
@@ -59,9 +64,9 @@ const AppRouter = () => {
               title="Chú thích"
               icon={TabIcon}
             />
-             <Scene
+            <Scene
               key="Profile"
-              initial
+              // initial
               component={Profile}
               hideNavBar
               title="Cá nhân"
@@ -85,6 +90,12 @@ const AppRouter = () => {
             component={Setting}
             hideNavBar
             title="Setting"
+          />
+          <Scene
+            key="EditProfile"
+            component={EditProfile}
+            hideNavBar
+            title="EditProfile"
           />
         </Scene>
       </Router>
@@ -110,15 +121,14 @@ const styles = StyleSheet.create({
     marginBottom: Platform.OS === "ios" ? 14 : 0,
   },
   topTabBar: {
-    backgroundColor: "white",
+    backgroundColor: "#fff",
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
     overflow: "hidden",
   },
   bottomTabBar: {
     height: 65,
-    borderTopWidth: Platform.OS === "ios" ? 0 : 0.8,
-    borderTopColor: "gray",
+    borderTopWidth: Platform.OS === "ios" ? 1 : 0.8,
     borderTopColor: "gray",
     paddingVertical: 10,
   },
@@ -130,6 +140,7 @@ const styles = StyleSheet.create({
 
 const actions = [
   profile,
+  theme
 ];
 
 function mapStateToProps(state) {

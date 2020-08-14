@@ -8,8 +8,10 @@ import {
   ScrollView,
   Image
 } from 'react-native';
-import { Actions } from 'react-native-router-flux';
+import { Actions, Drawer } from 'react-native-router-flux';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import Modal from 'react-native-modal';
 
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
@@ -20,26 +22,32 @@ import CommonHeader from '../components/header/CommonHeader';
 import gui from '../lib/gui';
 
 const Profile = (props) => {
+  const [showModal, setShowModal] = useState(false);
   const theme = props.theme.theme;
 
   const header = () => (
     <CommonHeader
-      title={'abc'}
+      leftContent={<Ionicons name={'ios-menu'} size={25} color={theme.PRIMARY_TEXT_COLOR} />}
+      onPressLeft={() => setShowModal(true)}
+      rightContent={<Icon name={'account-edit'} size={25} color={theme.PRIMARY_TEXT_COLOR} />}
+      onPressRight={() => Actions.EditProfile()}
+      noLinear
     />
-  )
+  );
   const body = () => {
     return (
       <ScrollView
         showsVerticalScrollIndicator={false}
         style={{ flex: 1 }}
         contentContainerStyle={{
+          marginTop: 20,
           marginBottom: 30,
           paddingBottom: 30
         }}
-        // showsVerticalScrollIndicator={false}
-        // refreshControl={
-        //   <RefreshControl refreshing={this.state.isLoading} onRefresh={this.fetchData.bind(this)} />
-        // }
+      // showsVerticalScrollIndicator={false}
+      // refreshControl={
+      //   <RefreshControl refreshing={this.state.isLoading} onRefresh={this.fetchData.bind(this)} />
+      // }
       >
         <View style={[styles.viewInfo, { marginBottom: 8 }]}>
           <Image source={require('../assets/images/tv1.png')} style={styles.viewImage} />
@@ -96,6 +104,23 @@ const Profile = (props) => {
       <StatusBar barStyle={theme.STATUS_BAR_STYLE} />
       {header()}
       {body()}
+      <Modal
+        isVisible={showModal}
+        style={{ height: '100%' }}
+        backdropColor="rgb(189,187,192)"
+        onClosed={() => {
+          //this.setState({
+          //  visibleModal: null
+          //});
+        }}
+        onBackdropPress={() => {
+          setShowModal(false);
+        }}
+      >
+        <View style={styles.viewModal}>
+          <Text>modal</Text>
+        </View>
+      </Modal>
     </View>
   );
 };
@@ -151,7 +176,8 @@ const styles = StyleSheet.create({
     height: 100,
     flexDirection: 'row',
     alignItems: 'center',
-    marginVertical: 30,
+    marginTop: 25,
+    marginBottom: 10,
   },
   viewHalfCenter: {
     justifyContent: 'center',
@@ -164,6 +190,16 @@ const styles = StyleSheet.create({
   },
   titleCenter: {
     fontSize: 20
+  },
+  //modal
+  viewModal: {
+    height: '120%',
+    width: '70%',
+    backgroundColor: '#fff',
+    position: 'absolute',
+    left: -20,
+    top: -20,
+    paddingTop:gui.paddingDrawer
   },
 })
 
