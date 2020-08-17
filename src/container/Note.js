@@ -5,6 +5,7 @@ import Header from '../components/note/Header';
 import ListItem from '../components/note/ListItem';
 import AddItem from '../components/note/AddItem';
 
+
 const Note = () => {
     const [items, setItems] = useState([
         {

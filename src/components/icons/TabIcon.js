@@ -16,6 +16,9 @@ const TabIcon = ({ title, focused, theme }) => {
     case 'Trang chủ':
       iconName = 'home';
       break;
+    case 'Explore':
+      iconName = 'paper-plane';
+      break;
     case 'Cá nhân':
       iconName = 'user';
       break;

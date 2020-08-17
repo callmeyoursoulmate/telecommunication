@@ -5,21 +5,39 @@ import {
   ScrollView,
   View,
   Text,
-  StatusBar,
-  TouchableOpacity
+  TouchableOpacity,
+  AsyncStorage
 } from 'react-native';
 import { Actions } from 'react-native-router-flux';
-import { useSelector} from 'react-redux';
+import { useSelector } from 'react-redux';
+import {setItemStorage, getItemStorage} from '../lib/localStorage';
 
 const Home = () => {
   const theme = useSelector(state => state.theme.theme);
+
+  saveItem = () => {
+    setItemStorage('A', {theme});
+  }
+  readItem = () => {
+    getItemStorage('A').then(rs => {
+      alert('value ' + rs);
+    })
+  }
+
   return (
-    <View style={[styles.container, 
-    { backgroundColor: theme.PRIMARY_BACKGROUND_COLOR}
+    <View style={[styles.container,
+    { backgroundColor: theme.PRIMARY_BACKGROUND_COLOR }
     ]}>
       <TouchableOpacity onPress={() => Actions.LoginScreen()}>
-        <Text>Go to Login</Text>
+        <Text>Go to Login  {'\n'} {'\n'}</Text>
       </TouchableOpacity>
+
+      {/* <TouchableOpacity onPress={saveItem}>
+        <Text>Save {'\n'} {'\n'}</Text>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={readItem}>
+        <Text>Read</Text>
+      </TouchableOpacity> */}
     </View>
   );
 };

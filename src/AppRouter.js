@@ -8,6 +8,7 @@ import {
 import TabIcon from "./components/icons/TabIcon";
 
 import Home from "./container/Home";
+import Explore from "./container/Explore";
 import Profile from "./container/Profile";
 import Note from "./container/Note";
 import LoginScreen from './components/login/LoginScreen';
@@ -53,6 +54,15 @@ const AppRouter = (props) => {
               component={Home}
               hideNavBar //tự sinh height on Top
               title="Trang chủ"
+              theme //truyền theme vào TabIcon
+              icon={TabIcon}
+            />
+            <Scene
+              key="Explore"
+              component={Explore}
+              // initial
+              hideNavBar //tự sinh height on Top
+              title="Explore"
               theme //truyền theme vào TabIcon
               icon={TabIcon}
             />

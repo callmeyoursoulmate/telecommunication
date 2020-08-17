@@ -4,7 +4,6 @@ import {
   View,
   Text,
   TouchableOpacity,
-  StatusBar,
   ScrollView,
   Image
 } from 'react-native';
@@ -101,7 +100,6 @@ const Profile = (props) => {
   }
   return (
     <View style={[styles.container, { backgroundColor: theme.PRIMARY_BACKGROUND_COLOR }]}>
-      <StatusBar barStyle={theme.STATUS_BAR_STYLE} />
       {header()}
       {body()}
       <Modal
@@ -109,9 +107,7 @@ const Profile = (props) => {
         style={{ height: '100%' }}
         backdropColor="rgb(189,187,192)"
         onClosed={() => {
-          //this.setState({
-          //  visibleModal: null
-          //});
+          // setShowModal(false);
         }}
         onBackdropPress={() => {
           setShowModal(false);
