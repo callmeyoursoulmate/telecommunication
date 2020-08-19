@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { StyleSheet, Platform, View, Text, StatusBar } from "react-native";
 import {
   Router,
@@ -25,8 +25,28 @@ import { Map } from 'immutable';
 import * as profile from './reducers/profile/profileActions';
 import * as theme from './reducers/theme/themeActions';
 
+//login
+import SignInScreen from './components/login/SignInScreen';
+import SignUpScreen from './components/login/SignUpScreen';
+
+import ls from './lib/localStorage';
 const AppRouter = (props) => {
   const theme = props.theme.theme;
+  const [isLogin, setIsLogin] = useState(false);
+
+  useEffect(() => {
+    _fetchData()
+  }, []);
+  const _fetchData = async () => {
+    ls.getLoginInfo().then((e) => {
+      if (e) {
+        setIsLogin(true);
+      }
+    })
+    return;
+  }
+
+
   return (
     <View style={styles.container}>
       <StatusBar barStyle={theme.STATUS_BAR_STYLE} backgroundColor={theme.PRIMARY_BACKGROUND_COLOR} />
@@ -48,6 +68,8 @@ const AppRouter = (props) => {
             labelStyle={styles.bottomTabTitle}
             activeTintColor={theme.PRIMARY_BUTTON_COLOR} //cùng màu với màu icons
             inactiveTintColor={theme.PRIMARY_TEXT_COLOR}
+
+            initial={isLogin}
           >
             <Scene
               key="Home"
@@ -88,6 +110,19 @@ const AppRouter = (props) => {
             component={LoginScreen}
             hideNavBar
             title="LoginScreen"
+          />
+          <Scene
+            key="SignInScreen"
+            component={SignInScreen}
+            hideNavBar
+            initial={!isLogin}
+            title="SignInScreen"
+          />
+          <Scene
+            key="SignUpScreen"
+            component={SignUpScreen}
+            hideNavBar
+            title="SignUpScreen"
           />
           <Scene
             key="Test"

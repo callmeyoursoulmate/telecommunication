@@ -14,8 +14,6 @@ import themeInitState from './src/reducers/theme/themeInitState';
 import configureStore from './src/lib/configureStore';
 import { Provider } from 'react-redux';
 
-import localStorage from './src/lib/localStorage';
-
 function getInitialState() {
   const _initState = {
     profile: new profileInitState,
@@ -25,19 +23,7 @@ function getInitialState() {
 }
 const store = configureStore(getInitialState());
 
-
 const App = () => {
-  // const themeCurrent = store.getState().theme.theme;
-  // const [theme, setTheme] = useState({themeCurrent});
-  // useEffect(() => {
-  //   fetchData();
-  // }, []);
-  // const fetchData = async () => {
-  //   let localTheme = await localStorage.getTheme(theme);
-  //   if(localTheme){
-  //     setTheme(localTheme);
-  //   }
-  // }
   return (
     <Provider store={store}>
       <AppRouter />

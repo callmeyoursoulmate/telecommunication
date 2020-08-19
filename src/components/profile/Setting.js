@@ -8,17 +8,20 @@ import { Map } from 'immutable';
 import * as theme from '../../reducers/theme/themeActions';
 
 import { lightTheme, darkTheme } from '../../reducers/theme/Theme';
-import localStorage from '../../lib/localStorage';
+import ls from '../../lib/localStorage';
 
 const Setting = (props) => {
     const theme = props.theme.theme;
-    const changeToDark = async () => {
-        localStorage.setTheme(darkTheme);
-        props.actions.switchTheme(darkTheme)
+    const changeToDark =  () => {
+        props.actions.switchTheme(darkTheme);
     }
-    const changeToLight = async () => {
-        localStorage.setTheme(lightTheme);
-        props.actions.switchTheme(lightTheme)
+    const changeToLight =  () => {
+        props.actions.switchTheme(lightTheme);
+    }
+
+    const logOut = () => {
+        ls.removeLogin();
+        Actions.SignInScreen();
     }
     return (
         <View style={[styles.container, {backgroundColor: theme.PRIMARY_BACKGROUND_COLOR}]}>
@@ -34,6 +37,9 @@ const Setting = (props) => {
                     <Text>Change to Light Theme</Text>
                 </TouchableOpacity>
             }
+            <TouchableOpacity onPress={logOut} style={[styles.changeTheme]}>
+                <Text>LOG OUT</Text>
+            </TouchableOpacity>
         </View>
     )
 }

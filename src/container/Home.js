@@ -29,7 +29,7 @@ const Home = () => {
     { backgroundColor: theme.PRIMARY_BACKGROUND_COLOR }
     ]}>
       <TouchableOpacity onPress={() => Actions.LoginScreen()}>
-        <Text>Go to Login  {'\n'} {'\n'}</Text>
+        <Text>Test  {'\n'} {'\n'}</Text>
       </TouchableOpacity>
 
       {/* <TouchableOpacity onPress={saveItem}>
