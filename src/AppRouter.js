@@ -109,6 +109,7 @@ const AppRouter = (props) => {
             key="LoginScreen"
             component={LoginScreen}
             hideNavBar
+            // initial
             title="LoginScreen"
           />
           <Scene
