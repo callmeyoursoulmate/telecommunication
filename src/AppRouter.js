@@ -11,7 +11,7 @@ import Home from "./container/Home";
 import Explore from "./container/Explore";
 import Profile from "./container/Profile";
 import Note from "./container/Note";
-import LoginScreen from './components/login/LoginScreen';
+import SearchScreen from './components/login/SearchScreen';
 
 //profile
 import Setting from './components/profile/Setting';
@@ -106,11 +106,11 @@ const AppRouter = (props) => {
             />
           </Tabs>
           <Scene
-            key="LoginScreen"
-            component={LoginScreen}
+            key="SearchScreen"
+            component={SearchScreen}
             hideNavBar
             // initial
-            title="LoginScreen"
+            title="SearchScreen"
           />
           <Scene
             key="SignInScreen"

@@ -28,7 +28,7 @@ const Home = () => {
     <View style={[styles.container,
     { backgroundColor: theme.PRIMARY_BACKGROUND_COLOR }
     ]}>
-      <TouchableOpacity onPress={() => Actions.LoginScreen()}>
+      <TouchableOpacity onPress={() => Actions.SearchScreen()}>
         <Text>Test</Text>
       </TouchableOpacity>
     </View>
