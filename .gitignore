@@ -1,6 +1,8 @@
 # OSX
 #
 .DS_Store
+ios/.DS_Store
+ios/Podfile.lock
 
 # Xcode
 #

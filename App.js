@@ -9,6 +9,9 @@
 import React, { useEffect, useState } from 'react';
 import AppRouter from './src/AppRouter';
 
+import SplashScreen from 'react-native-splash-screen';
+
+
 import profileInitState from './src/reducers/profile/profileInitState';
 import themeInitState from './src/reducers/theme/themeInitState';
 import configureStore from './src/lib/configureStore';
@@ -24,6 +27,9 @@ function getInitialState() {
 const store = configureStore(getInitialState());
 
 const App = () => {
+  useEffect(() => {
+    SplashScreen.hide();
+  }, []);
   return (
     <Provider store={store}>
       <AppRouter />

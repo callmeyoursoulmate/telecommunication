@@ -10,7 +10,7 @@
 #import <React/RCTBridge.h>
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
-
+#import "RNSplashScreen.h"
 
 #import <GoogleMaps/GoogleMaps.h>
 
@@ -24,7 +24,8 @@
   [GMSServices provideAPIKey:@"telecommunication"];
   // add this line using the api key obtained from Google Console
   
-  
+//   [RNSplashScreen show];  // here
+  [RNSplashScreen hide];
   
   
   RCTBridge *bridge = [[RCTBridge alloc] initWithDelegate:self launchOptions:launchOptions];
