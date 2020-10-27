@@ -11,6 +11,7 @@ import Home from "./container/Home";
 import Explore from "./container/Explore";
 import Profile from "./container/Profile";
 import Note from "./container/Note";
+import CheckOTP from "./container/CheckOTP";
 import SearchScreen from './components/login/SearchScreen';
 
 //profile
@@ -138,10 +139,10 @@ const AppRouter = (props) => {
             title="Setting"
           />
           <Scene
-            key="EditProfile"
-            component={EditProfile}
+            key="CheckOTP"
+            component={CheckOTP}
             hideNavBar
-            title="EditProfile"
+            title="CheckOTP"
           />
         </Scene>
       </Router>

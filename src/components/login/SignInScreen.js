@@ -115,7 +115,8 @@ const SignInScreen = () => {
                 userToken: foundUser[0].userToken
             }
             ls.setLoginInfo(dto);
-            Actions.Home();
+            Actions.CheckOTP();
+            // Actions.Home();
         }
     }
 
